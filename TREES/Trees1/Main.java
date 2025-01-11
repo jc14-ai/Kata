@@ -1,4 +1,4 @@
-package TREES.Trees1;
+package Trees1;
 
 public class Main {
     class Node {

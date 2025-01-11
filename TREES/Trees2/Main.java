@@ -1,4 +1,4 @@
-package TREES.Trees2;
+package Trees2;
 
 import java.util.Scanner;
 
