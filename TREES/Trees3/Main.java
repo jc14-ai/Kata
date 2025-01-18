@@ -37,14 +37,15 @@ public class Main {
         int choice = 0;
         while (choice != 5) {
             try {
-                System.out.println("MAIN MENU");
-                System.out.println("[1] INSERT");
-                System.out.println("[2] DELETE");
-                System.out.println("[3] SEARCH");
-                System.out.println("[4] TRAVERSE");
-                System.out.println("[5] QUIT");
+                System.out.println("Main Menu");
+                System.out.println("[1] Insert");
+                System.out.println("[2] Delete");
+                System.out.println("[3] Search");
+                System.out.println("[4] Traverse");
+                System.out.println("[5] Quit");
                 System.out.print("Select your choice: ");
                 choice = in.nextInt();
+
                 in.nextLine();
                 if (choice <= 5 && choice >= 1) {
                     selectChoice(choice);
@@ -70,48 +71,102 @@ public class Main {
             case 3:
                 break;
             case 4:
+                traverseMenu();
                 break;
         }
     }
 
     private void insertNode() {
         int val = 0;
-        String choice = "N";
-        while (!choice.equals("Y")) {
+        String choice = "Y";
+        while (choice.toUpperCase().equals("Y")) {
             try {
                 System.out.print("Insert a value: ");
                 val = in.nextInt();
                 in.nextLine();
 
-                insert(val, root);
+                root = insert(val, root);
 
                 System.out.println("Number Inserted!");
-                System.out.print("Would you like to continue?[Y|N]: ");
+                System.out.println("Would you like to continue?[Y]");
+                System.out.print("Press any key to cancel...: ");
                 choice = in.nextLine();
 
             } catch (Exception e) {
                 in.next();
-                System.out.println("Enter a Number!");
+                System.out.println("Enter a valid Number!");
             }
         }
+        System.out.println("Returning to Main Menu...");
     }
 
-    private void insert(int val, Node node) {
-
-        if (root == null) {
-            root = new Node(val);
-            return;
-        }
+    private Node insert(int val, Node node) {
 
         if (node == null) {
-            return;
+            return new Node(val);
         }
 
         if (val < node.val) {
-            insert(val, node.left);
+            node.left = insert(val, node.left);
         } else if (val > node.val) {
-            insert(val, root.right);
+            node.right = insert(val, node.right);
         }
+
+        return node;
+    }
+
+    private void traverseMenu() {
+        int choice = 0;
+
+        while (choice != 4) {
+            try {
+                System.out.println("Traversal Menu");
+                System.out.println("[1] Inorder Traversal");
+                System.out.println("[2] Preorder Traversal");
+                System.out.println("[3] Postorder Traversal");
+                System.out.println("[4] Back");
+                choice = in.nextInt();
+
+                in.nextLine();
+
+                if (choice >= 1 && choice <= 4) {
+                    traverseChoice(choice);
+                    continue;
+                }
+
+                System.out.println("Enter a valid Number!");
+            } catch (Exception e) {
+                in.next();
+                System.out.println("Enter a valid Number!");
+            }
+        }
+        System.out.println("Returning to Main Menu...");
+    }
+
+    private void traverseChoice(int choice) {
+        switch (choice) {
+            case 1:
+                inOrderTraversal();
+                break;
+            case 2:
+                preOrderTraversal();
+                break;
+            case 3:
+                postOrderTraversal();
+                break;
+        }
+    }
+
+    private void inOrderTraversal() {
+
+    }
+
+    private void preOrderTraversal() {
+
+    }
+
+    private void postOrderTraversal() {
+
     }
 
     public static void main(String[] args) {
