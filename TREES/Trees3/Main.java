@@ -125,6 +125,7 @@ public class Main {
                 System.out.println("[2] Preorder Traversal");
                 System.out.println("[3] Postorder Traversal");
                 System.out.println("[4] Back");
+                System.out.print("Select your choice: ");
                 choice = in.nextInt();
 
                 in.nextLine();
@@ -146,27 +147,51 @@ public class Main {
     private void traverseChoice(int choice) {
         switch (choice) {
             case 1:
-                inOrderTraversal();
+                inOrderTraversal(root);
                 break;
             case 2:
-                preOrderTraversal();
+                preOrderTraversal(root);
                 break;
             case 3:
-                postOrderTraversal();
+                postOrderTraversal(root);
                 break;
         }
     }
 
-    private void inOrderTraversal() {
+    private void inOrderTraversal(Node node) {
+        if (node.left != null) {
+            inOrderTraversal(node.left);
+        }
 
+        System.out.println(node.val);
+
+        if (node.right != null) {
+            inOrderTraversal(node.right);
+        }
     }
 
-    private void preOrderTraversal() {
+    private void preOrderTraversal(Node node) {
+        System.out.println(node.val);
 
+        if (node.left != null) {
+            preOrderTraversal(node.left);
+        }
+
+        if (node.right != null) {
+            preOrderTraversal(node.right);
+        }
     }
 
-    private void postOrderTraversal() {
+    private void postOrderTraversal(Node node) {
+        if (node.left != null) {
+            postOrderTraversal(node.left);
+        }
 
+        if (node.right != null) {
+            postOrderTraversal(node.right);
+        }
+
+        System.out.println(node.val);
     }
 
     public static void main(String[] args) {
