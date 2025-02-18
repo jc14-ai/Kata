@@ -69,6 +69,7 @@ public class Main {
         System.out.println(node.data);
     }
 
+    // Inorder Traversal = 5,6,10,12
     // this section of deletion is wrong
     private void delete(int data) {
         root = search(data, root);
@@ -88,6 +89,4 @@ public class Main {
         return node;
 
     }
-
-    // Inorder Traversal = 5,6,10,12
 }
