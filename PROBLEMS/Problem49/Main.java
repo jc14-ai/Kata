@@ -4,6 +4,11 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+        HashMap<Character, Character> map = new HashMap<>();
+        map.put('k', 'l');
+        System.out.println(map.get('k'));
+        System.out.println(map.keySet());
+        System.out.println(map.values());
         System.out.println(restoreString("codeleet", new int[] { 4, 5, 6, 7, 0, 2, 1, 3 }));
     }
 
