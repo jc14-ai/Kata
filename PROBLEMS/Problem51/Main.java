@@ -10,6 +10,7 @@ public class Main {
     public static int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
         int res = 0;
         int j = 0;
+        
 
         if (ruleKey.equals("type")) {
             j = 0;
