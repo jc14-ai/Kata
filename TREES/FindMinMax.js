@@ -112,15 +112,15 @@ console.log("Min:", bst.getMin());  //finding the min value
 console.log("Max:", bst.getMax());  //finding the max value
 
 //finding the existing 18 value
-if(bst.find(5) != null){
-    console.log("number found!");
-}else{
-    console.log("number does not exist!");
+if (bst.find(5) != null) {
+  console.log("number found!");
+} else {
+  console.log("number does not exist!");
 }
 
 //finding non exisiting value
-if(bst.find(231) != null){
-    console.log("number found!");
-}else{
-    console.log("number does not exist!");
+if (bst.find(231) != null) {
+  console.log("number found!");
+} else {
+  console.log("number does not exist!");
 }

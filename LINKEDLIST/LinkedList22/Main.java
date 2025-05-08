@@ -10,6 +10,7 @@ public class Main {
 
     class Node {
         Node next;
+
         String val;
 
         Node(String val) {
